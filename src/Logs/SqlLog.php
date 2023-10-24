@@ -2,8 +2,8 @@
 
 namespace Nilisnone\LogViewer\Logs;
 
-use Opcodes\LogViewer\LogLevels\RedisLogLevel;
-use Opcodes\LogViewer\Logs\Log;
+use Nilisnone\LogViewer\LogLevels\RedisLogLevel;
+use Nilisnone\LogViewer\Logs\Log;
 use function Symfony\Component\Translation\t;
 
 class SqlLog extends Log

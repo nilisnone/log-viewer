@@ -16,6 +16,7 @@ use Nilisnone\LogViewer\Logs\PhpFpmLog;
 use Nilisnone\LogViewer\Logs\PostgresLog;
 use Nilisnone\LogViewer\Logs\RedisLog;
 use Nilisnone\LogViewer\Logs\SupervisorLog;
+use Nilisnone\LogViewer\Logs\SqlLog;
 
 class LogTypeRegistrar
 {

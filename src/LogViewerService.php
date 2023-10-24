@@ -310,7 +310,7 @@ class LogViewerService
         }
 
         if (class_exists(InstalledVersions::class)) {
-            return InstalledVersions::getPrettyVersion('Nilisnoneio/log-viewer') ?? 'dev-main';
+            return InstalledVersions::getPrettyVersion('nilisnone/log-viewer') ?? 'dev-main';
         } else {
             $composerJson = json_decode(file_get_contents(__DIR__.'/../composer.json'), true);
 
