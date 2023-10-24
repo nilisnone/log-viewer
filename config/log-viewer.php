@@ -136,6 +136,7 @@ return [
         // You can include paths to other log types as well, such as apache, nginx, and more.
         '/var/log/httpd/*',
         '/var/log/nginx/*',
+        '/var/log/sql/*',
 
         // MacOS Apple Silicon logs
         '/opt/homebrew/var/log/nginx/*',
