@@ -18,6 +18,7 @@ class LogType
     const REDIS = 'redis';
     const SUPERVISOR = 'supervisor';
     const SQL = 'sql';
+    const ZZ = 'zz_log';
 
     public string $value;
 

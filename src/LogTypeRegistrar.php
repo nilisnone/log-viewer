@@ -17,6 +17,7 @@ use Nilisnone\LogViewer\Logs\PostgresLog;
 use Nilisnone\LogViewer\Logs\RedisLog;
 use Nilisnone\LogViewer\Logs\SupervisorLog;
 use Nilisnone\LogViewer\Logs\SqlLog;
+use Nilisnone\LogViewer\Logs\ZzLog;
 
 class LogTypeRegistrar
 {
@@ -32,6 +33,7 @@ class LogTypeRegistrar
         [LogType::REDIS, RedisLog::class],
         [LogType::SUPERVISOR, SupervisorLog::class],
         [LogType::SQL, SqlLog::class],
+        [LogType::ZZ, ZzLog::class],
     ];
 
     public function register(string $type, string $class): void

@@ -5,15 +5,15 @@ namespace Nilisnone\LogViewer\Logs;
 use Nilisnone\LogViewer\LogLevels\RedisLogLevel;
 use function Symfony\Component\Translation\t;
 
-class SqlLog extends Log
+class ZzLog extends Log
 {
-    public static string $name = 'Sql';
+    public static string $name = 'zz_log';
     public static string $regex = '';
     public static string $levelClass = RedisLogLevel::class;
     public static array $columns = [
         ['label' => 'Datetime', 'data_path' => 'datetime'],
-        ['label' => 'PID', 'data_path' => 'context.pid'],
-        ['label' => 'Role', 'data_path' => 'context.role'],
+        ['label' => 'LogChannel', 'data_path' => 'context.logChannel'],
+        ['label' => 'Performance', 'data_path' => 'context.performance'],
         ['label' => 'Severity', 'data_path' => 'level'],
         ['label' => 'Message', 'data_path' => 'message'],
     ];
@@ -26,10 +26,10 @@ class SqlLog extends Log
         $this->filePosition = $filePosition;
         $this->index = $index;
 
-        $this->datetime = static::parseDatetime($text['biz_created_at'] ?? $text['_timestamp'] ?? '');
-        // todo level info
-        $this->level = 'info';
-        $this->message = $text['trace_sql'] ?? ($text['msg'] ?? '');
+        $this->datetime = static::parseDatetime($text['@timestamp'] ?? '');
+        $this->level = $text['level'] ?? 'info';
+        $this->message = $text['msg'] ?? 'cannot found msg';
+        $this->extra = $text['extra'] ?? '';
         $this->context = $text;
     }
 
@@ -39,8 +39,11 @@ class SqlLog extends Log
         if (json_last_error() !== JSON_ERROR_NONE) {
             return false;
         }
+        if (empty($text['@timestamp']) && empty($text['env'])) {
+            return false;
+        }
         $timestamp = static::parseDatetime($text['biz_created_at'] ?? $text['_timestamp'] ?? '')?->timestamp;
-        $level = 'info';
+        $level = $text['level'] ?? 'info';
         return true;
     }
 }
