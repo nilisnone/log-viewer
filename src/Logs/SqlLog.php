@@ -39,6 +39,9 @@ class SqlLog extends Log
         if (json_last_error() !== JSON_ERROR_NONE) {
             return false;
         }
+        if (!in_array($text['msg'] ?? '', ['trace-app', 'trace-sql'])) {
+            return false;
+        }
         $timestamp = static::parseDatetime($text['biz_created_at'] ?? $text['_timestamp'] ?? '')?->timestamp;
         $level = 'info';
         return true;
