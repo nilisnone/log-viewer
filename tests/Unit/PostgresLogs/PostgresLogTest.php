@@ -1,7 +1,7 @@
 <?php
 
-use Opcodes\LogViewer\LogFile;
-use Opcodes\LogViewer\Logs\LogType;
+use Nilisnone\LogViewer\LogFile;
+use Nilisnone\LogViewer\Logs\LogType;
 
 it('can process a Postgres log file', function () {
     $file = generateLogFile('postgres@14.log', <<<'LOG'

@@ -1,6 +1,6 @@
 <?php
 
-namespace Opcodes\LogViewer;
+namespace Nilisnone\LogViewer;
 
 class LogIndexChunk
 {

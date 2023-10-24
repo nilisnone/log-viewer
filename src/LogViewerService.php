@@ -1,6 +1,6 @@
 <?php
 
-namespace Opcodes\LogViewer;
+namespace Nilisnone\LogViewer;
 
 use Composer\InstalledVersions;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -8,9 +8,9 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
-use Opcodes\LogViewer\Readers\IndexedLogReader;
-use Opcodes\LogViewer\Readers\LogReaderInterface;
-use Opcodes\LogViewer\Utils\Utils;
+use Nilisnone\LogViewer\Readers\IndexedLogReader;
+use Nilisnone\LogViewer\Readers\LogReaderInterface;
+use Nilisnone\LogViewer\Utils\Utils;
 
 class LogViewerService
 {
@@ -310,7 +310,7 @@ class LogViewerService
         }
 
         if (class_exists(InstalledVersions::class)) {
-            return InstalledVersions::getPrettyVersion('opcodesio/log-viewer') ?? 'dev-main';
+            return InstalledVersions::getPrettyVersion('Nilisnoneio/log-viewer') ?? 'dev-main';
         } else {
             $composerJson = json_decode(file_get_contents(__DIR__.'/../composer.json'), true);
 

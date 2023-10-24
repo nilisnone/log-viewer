@@ -1,9 +1,9 @@
 <?php
 
-use Opcodes\LogViewer\Facades\LogViewer;
-use Opcodes\LogViewer\Host;
-use Opcodes\LogViewer\HostCollection;
-use Opcodes\LogViewer\Utils\Utils;
+use Nilisnone\LogViewer\Facades\LogViewer;
+use Nilisnone\LogViewer\Host;
+use Nilisnone\LogViewer\HostCollection;
+use Nilisnone\LogViewer\Utils\Utils;
 
 it('can get a list of hosts from configuration', function () {
     config(['log-viewer.hosts' => $hostConfigs = [

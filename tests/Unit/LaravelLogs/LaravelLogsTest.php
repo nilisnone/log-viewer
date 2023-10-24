@@ -1,7 +1,7 @@
 <?php
 
-use Opcodes\LogViewer\Logs\LaravelLog;
-use Opcodes\LogViewer\Utils\Utils;
+use Nilisnone\LogViewer\Logs\LaravelLog;
+use Nilisnone\LogViewer\Utils\Utils;
 
 it('can extract mail preview from a log', function () {
     $messageString = <<<'EOF'

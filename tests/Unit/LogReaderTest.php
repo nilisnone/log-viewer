@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\File;
-use Opcodes\LogViewer\Exceptions\CannotOpenFileException;
-use Opcodes\LogViewer\Readers\IndexedLogReader;
+use Nilisnone\LogViewer\Exceptions\CannotOpenFileException;
+use Nilisnone\LogViewer\Readers\IndexedLogReader;
 
 beforeEach(function () {
     $this->file = generateLogFile();

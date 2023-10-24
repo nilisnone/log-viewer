@@ -1,8 +1,8 @@
 <?php
 
-use Opcodes\LogViewer\LogFile;
-use Opcodes\LogViewer\Logs\HttpAccessLog;
-use Opcodes\LogViewer\Logs\LogType;
+use Nilisnone\LogViewer\LogFile;
+use Nilisnone\LogViewer\Logs\HttpAccessLog;
+use Nilisnone\LogViewer\Logs\LogType;
 
 it('can read an access log line', function () {
     $line = '205.123.147.41 - arunas [18/Apr/2023:05:21:57 +0000] "GET /tag HTTP/1.1" 500 2519 "-" "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"';

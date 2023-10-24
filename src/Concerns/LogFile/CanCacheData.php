@@ -1,11 +1,11 @@
 <?php
 
-namespace Opcodes\LogViewer\Concerns\LogFile;
+namespace Nilisnone\LogViewer\Concerns\LogFile;
 
 use Carbon\CarbonInterface;
-use Opcodes\LogViewer\Facades\Cache;
-use Opcodes\LogViewer\Utils\GenerateCacheKey;
-use Opcodes\LogViewer\Utils\Utils;
+use Nilisnone\LogViewer\Facades\Cache;
+use Nilisnone\LogViewer\Utils\GenerateCacheKey;
+use Nilisnone\LogViewer\Utils\Utils;
 
 trait CanCacheData
 {

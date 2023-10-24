@@ -1,6 +1,6 @@
 <?php
 
-namespace Opcodes\LogViewer\Exceptions;
+namespace Nilisnone\LogViewer\Exceptions;
 
 use Exception;
 

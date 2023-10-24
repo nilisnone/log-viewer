@@ -1,9 +1,9 @@
 <?php
 
-namespace Opcodes\LogViewer\Concerns\LogReader;
+namespace Nilisnone\LogViewer\Concerns\LogReader;
 
-use Opcodes\LogViewer\Exceptions\CannotCloseFileException;
-use Opcodes\LogViewer\Exceptions\CannotOpenFileException;
+use Nilisnone\LogViewer\Exceptions\CannotCloseFileException;
+use Nilisnone\LogViewer\Exceptions\CannotOpenFileException;
 
 trait KeepsFileHandle
 {

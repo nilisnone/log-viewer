@@ -1,9 +1,9 @@
 <?php
 
-namespace Opcodes\LogViewer\Logs;
+namespace Nilisnone\LogViewer\Logs;
 
-use Opcodes\LogViewer\Exceptions\SkipLineException;
-use Opcodes\LogViewer\LogLevels\HorizonStatusLevel;
+use Nilisnone\LogViewer\Exceptions\SkipLineException;
+use Nilisnone\LogViewer\LogLevels\HorizonStatusLevel;
 
 class HorizonLog extends Log
 {

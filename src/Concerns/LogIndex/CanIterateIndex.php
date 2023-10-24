@@ -1,9 +1,9 @@
 <?php
 
-namespace Opcodes\LogViewer\Concerns\LogIndex;
+namespace Nilisnone\LogViewer\Concerns\LogIndex;
 
 use ArrayIterator;
-use Opcodes\LogViewer\Direction;
+use Nilisnone\LogViewer\Direction;
 
 trait CanIterateIndex
 {

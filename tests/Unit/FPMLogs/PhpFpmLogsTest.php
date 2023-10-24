@@ -1,7 +1,7 @@
 <?php
 
-use Opcodes\LogViewer\LogFile;
-use Opcodes\LogViewer\Logs\LogType;
+use Nilisnone\LogViewer\LogFile;
+use Nilisnone\LogViewer\Logs\LogType;
 
 it('can process PHP FPM logs', function () {
     $file = generateLogFile('php-fpm.log', <<<'LOG'

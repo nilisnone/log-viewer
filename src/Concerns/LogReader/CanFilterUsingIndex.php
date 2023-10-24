@@ -1,8 +1,8 @@
 <?php
 
-namespace Opcodes\LogViewer\Concerns\LogReader;
+namespace Nilisnone\LogViewer\Concerns\LogReader;
 
-use Opcodes\LogViewer\Utils\Utils;
+use Nilisnone\LogViewer\Utils\Utils;
 
 trait CanFilterUsingIndex
 {

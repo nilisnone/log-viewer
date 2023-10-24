@@ -1,16 +1,16 @@
 <?php
 
-namespace Opcodes\LogViewer\Readers;
+namespace Nilisnone\LogViewer\Readers;
 
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
-use Opcodes\LogViewer\Concerns;
-use Opcodes\LogViewer\Exceptions\CannotOpenFileException;
-use Opcodes\LogViewer\Exceptions\SkipLineException;
-use Opcodes\LogViewer\Facades\LogViewer;
-use Opcodes\LogViewer\LevelCount;
-use Opcodes\LogViewer\LogIndex;
-use Opcodes\LogViewer\Logs\Log;
+use Nilisnone\LogViewer\Concerns;
+use Nilisnone\LogViewer\Exceptions\CannotOpenFileException;
+use Nilisnone\LogViewer\Exceptions\SkipLineException;
+use Nilisnone\LogViewer\Facades\LogViewer;
+use Nilisnone\LogViewer\LevelCount;
+use Nilisnone\LogViewer\LogIndex;
+use Nilisnone\LogViewer\Logs\Log;
 
 class IndexedLogReader extends BaseLogReader implements LogReaderInterface
 {

@@ -1,7 +1,7 @@
 <?php
 
-use Opcodes\LogViewer\Facades\Cache;
-use Opcodes\LogViewer\Utils\GenerateCacheKey;
+use Nilisnone\LogViewer\Facades\Cache;
+use Nilisnone\LogViewer\Utils\GenerateCacheKey;
 
 it('can fetch a chunk definition for an empty chunk', function () {
     $logIndex = createLogIndex();

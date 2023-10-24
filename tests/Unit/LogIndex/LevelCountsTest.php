@@ -1,6 +1,6 @@
 <?php
 
-use Opcodes\LogViewer\LogLevels\LaravelLogLevel;
+use Nilisnone\LogViewer\LogLevels\LaravelLogLevel;
 
 it('can return the counts for each severity level in the file', function () {
     $logIndex = createLogIndex(predefinedLogs: [

@@ -1,8 +1,8 @@
 <?php
 
-namespace Opcodes\LogViewer\Logs;
+namespace Nilisnone\LogViewer\Logs;
 
-use Opcodes\LogViewer\LogLevels\HorizonStatusLevel;
+use Nilisnone\LogViewer\LogLevels\HorizonStatusLevel;
 
 class HorizonOldLog extends Log
 {

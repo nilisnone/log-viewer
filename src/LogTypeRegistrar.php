@@ -1,21 +1,21 @@
 <?php
 
-namespace Opcodes\LogViewer;
+namespace Nilisnone\LogViewer;
 
-use Opcodes\LogViewer\Exceptions\CannotOpenFileException;
-use Opcodes\LogViewer\Exceptions\SkipLineException;
-use Opcodes\LogViewer\Logs\HorizonLog;
-use Opcodes\LogViewer\Logs\HorizonOldLog;
-use Opcodes\LogViewer\Logs\HttpAccessLog;
-use Opcodes\LogViewer\Logs\HttpApacheErrorLog;
-use Opcodes\LogViewer\Logs\HttpNginxErrorLog;
-use Opcodes\LogViewer\Logs\LaravelLog;
-use Opcodes\LogViewer\Logs\Log;
-use Opcodes\LogViewer\Logs\LogType;
-use Opcodes\LogViewer\Logs\PhpFpmLog;
-use Opcodes\LogViewer\Logs\PostgresLog;
-use Opcodes\LogViewer\Logs\RedisLog;
-use Opcodes\LogViewer\Logs\SupervisorLog;
+use Nilisnone\LogViewer\Exceptions\CannotOpenFileException;
+use Nilisnone\LogViewer\Exceptions\SkipLineException;
+use Nilisnone\LogViewer\Logs\HorizonLog;
+use Nilisnone\LogViewer\Logs\HorizonOldLog;
+use Nilisnone\LogViewer\Logs\HttpAccessLog;
+use Nilisnone\LogViewer\Logs\HttpApacheErrorLog;
+use Nilisnone\LogViewer\Logs\HttpNginxErrorLog;
+use Nilisnone\LogViewer\Logs\LaravelLog;
+use Nilisnone\LogViewer\Logs\Log;
+use Nilisnone\LogViewer\Logs\LogType;
+use Nilisnone\LogViewer\Logs\PhpFpmLog;
+use Nilisnone\LogViewer\Logs\PostgresLog;
+use Nilisnone\LogViewer\Logs\RedisLog;
+use Nilisnone\LogViewer\Logs\SupervisorLog;
 
 class LogTypeRegistrar
 {

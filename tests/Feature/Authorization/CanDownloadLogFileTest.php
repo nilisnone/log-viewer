@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Gate;
-use Opcodes\LogViewer\LogFile;
+use Nilisnone\LogViewer\LogFile;
 
 use function Pest\Laravel\get;
 

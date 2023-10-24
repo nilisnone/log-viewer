@@ -1,7 +1,7 @@
 <?php
 
-use Opcodes\LogViewer\LogLevels\LaravelLogLevel;
-use Opcodes\LogViewer\Logs\LaravelLog;
+use Nilisnone\LogViewer\LogLevels\LaravelLogLevel;
+use Nilisnone\LogViewer\Logs\LaravelLog;
 
 use function PHPUnit\Framework\assertEquals;
 

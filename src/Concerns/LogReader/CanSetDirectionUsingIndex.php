@@ -1,8 +1,8 @@
 <?php
 
-namespace Opcodes\LogViewer\Concerns\LogReader;
+namespace Nilisnone\LogViewer\Concerns\LogReader;
 
-use Opcodes\LogViewer\Direction;
+use Nilisnone\LogViewer\Direction;
 
 trait CanSetDirectionUsingIndex
 {

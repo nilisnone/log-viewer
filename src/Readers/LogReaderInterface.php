@@ -1,10 +1,10 @@
 <?php
 
-namespace Opcodes\LogViewer\Readers;
+namespace Nilisnone\LogViewer\Readers;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Opcodes\LogViewer\LogFile;
-use Opcodes\LogViewer\Logs\Log;
+use Nilisnone\LogViewer\LogFile;
+use Nilisnone\LogViewer\Logs\Log;
 
 interface LogReaderInterface
 {

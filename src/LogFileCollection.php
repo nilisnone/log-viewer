@@ -1,9 +1,9 @@
 <?php
 
-namespace Opcodes\LogViewer;
+namespace Nilisnone\LogViewer;
 
 use Illuminate\Support\Collection;
-use Opcodes\LogViewer\Readers\MultipleLogReader;
+use Nilisnone\LogViewer\Readers\MultipleLogReader;
 
 /**
  * @var LogFile[] $items

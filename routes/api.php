@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Opcodes\LogViewer\Http\Middleware\ForwardRequestToHostMiddleware;
-use Opcodes\LogViewer\Http\Middleware\JsonResourceWithoutWrappingMiddleware;
+use Nilisnone\LogViewer\Http\Middleware\ForwardRequestToHostMiddleware;
+use Nilisnone\LogViewer\Http\Middleware\JsonResourceWithoutWrappingMiddleware;
 
 Route::get('hosts', 'HostsController@index')->name('log-viewer.hosts');
 

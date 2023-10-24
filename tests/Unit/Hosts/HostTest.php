@@ -1,6 +1,6 @@
 <?php
 
-use Opcodes\LogViewer\Host;
+use Nilisnone\LogViewer\Host;
 
 it('can check if host is remote', function () {
     $host = new Host('local', 'Local', null);

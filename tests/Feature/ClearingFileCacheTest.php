@@ -1,9 +1,9 @@
 <?php
 
-use Opcodes\LogViewer\Facades\Cache;
-use Opcodes\LogViewer\Facades\LogViewer;
-use Opcodes\LogViewer\LogIndex;
-use Opcodes\LogViewer\Utils\GenerateCacheKey;
+use Nilisnone\LogViewer\Facades\Cache;
+use Nilisnone\LogViewer\Facades\LogViewer;
+use Nilisnone\LogViewer\LogIndex;
+use Nilisnone\LogViewer\Utils\GenerateCacheKey;
 
 use function PHPUnit\Framework\assertNotSame;
 

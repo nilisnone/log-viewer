@@ -1,8 +1,8 @@
 <?php
 
-namespace Opcodes\LogViewer\Logs;
+namespace Nilisnone\LogViewer\Logs;
 
-use Opcodes\LogViewer\LogLevels\RedisLogLevel;
+use Nilisnone\LogViewer\LogLevels\RedisLogLevel;
 
 class RedisLog extends Log
 {

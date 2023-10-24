@@ -1,15 +1,15 @@
 <?php
 
-namespace Opcodes\LogViewer;
+namespace Nilisnone\LogViewer;
 
 use Illuminate\Support\Arr;
-use Opcodes\LogViewer\Events\LogFileDeleted;
-use Opcodes\LogViewer\Exceptions\CannotOpenFileException;
-use Opcodes\LogViewer\Exceptions\InvalidRegularExpression;
-use Opcodes\LogViewer\Facades\LogViewer;
-use Opcodes\LogViewer\Logs\LogType;
-use Opcodes\LogViewer\Readers\LogReaderInterface;
-use Opcodes\LogViewer\Utils\Utils;
+use Nilisnone\LogViewer\Events\LogFileDeleted;
+use Nilisnone\LogViewer\Exceptions\CannotOpenFileException;
+use Nilisnone\LogViewer\Exceptions\InvalidRegularExpression;
+use Nilisnone\LogViewer\Facades\LogViewer;
+use Nilisnone\LogViewer\Logs\LogType;
+use Nilisnone\LogViewer\Readers\LogReaderInterface;
+use Nilisnone\LogViewer\Utils\Utils;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class LogFile

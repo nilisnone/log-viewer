@@ -1,8 +1,8 @@
 <?php
 
-namespace Opcodes\LogViewer\Utils;
+namespace Nilisnone\LogViewer\Utils;
 
-use Opcodes\LogViewer\Exceptions\InvalidRegularExpression;
+use Nilisnone\LogViewer\Exceptions\InvalidRegularExpression;
 
 class Utils
 {

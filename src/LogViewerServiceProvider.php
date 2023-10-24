@@ -3,7 +3,7 @@
 /** @noinspection PhpUndefinedNamespaceInspection */
 /** @noinspection PhpUndefinedClassInspection */
 
-namespace Opcodes\LogViewer;
+namespace Nilisnone\LogViewer;
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\Facades\Cache;
@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Octane\Events\RequestTerminated;
-use Opcodes\LogViewer\Console\Commands\GenerateDummyLogsCommand;
-use Opcodes\LogViewer\Console\Commands\PublishCommand;
-use Opcodes\LogViewer\Events\LogFileDeleted;
-use Opcodes\LogViewer\Facades\LogViewer;
-use Opcodes\LogViewer\Http\Middleware\EnsureFrontendRequestsAreStateful;
+use Nilisnone\LogViewer\Console\Commands\GenerateDummyLogsCommand;
+use Nilisnone\LogViewer\Console\Commands\PublishCommand;
+use Nilisnone\LogViewer\Events\LogFileDeleted;
+use Nilisnone\LogViewer\Facades\LogViewer;
+use Nilisnone\LogViewer\Http\Middleware\EnsureFrontendRequestsAreStateful;
 
 class LogViewerServiceProvider extends ServiceProvider
 {
@@ -89,7 +89,7 @@ class LogViewerServiceProvider extends ServiceProvider
         Route::group([
             'domain' => config('log-viewer.route_domain', null),
             'prefix' => Str::finish(config('log-viewer.route_path'), '/').'api',
-            'namespace' => 'Opcodes\LogViewer\Http\Controllers',
+            'namespace' => 'Nilisnone\LogViewer\Http\Controllers',
             'middleware' => config('log-viewer.api_middleware', null),
         ], function () {
             $this->loadRoutesFrom(self::basePath('/routes/api.php'));
@@ -98,7 +98,7 @@ class LogViewerServiceProvider extends ServiceProvider
         Route::group([
             'domain' => config('log-viewer.route_domain', null),
             'prefix' => config('log-viewer.route_path'),
-            'namespace' => 'Opcodes\LogViewer\Http\Controllers',
+            'namespace' => 'Nilisnone\LogViewer\Http\Controllers',
             'middleware' => config('log-viewer.middleware', null),
         ], function () {
             $this->loadRoutesFrom(self::basePath('/routes/web.php'));

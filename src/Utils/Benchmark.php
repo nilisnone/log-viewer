@@ -1,6 +1,6 @@
 <?php
 
-namespace Opcodes\LogViewer\Utils;
+namespace Nilisnone\LogViewer\Utils;
 
 class Benchmark
 {

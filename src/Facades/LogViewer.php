@@ -1,18 +1,18 @@
 <?php
 
-namespace Opcodes\LogViewer\Facades;
+namespace Nilisnone\LogViewer\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Opcodes\LogViewer\Host;
-use Opcodes\LogViewer\HostCollection;
-use Opcodes\LogViewer\LogFile;
-use Opcodes\LogViewer\LogFileCollection;
-use Opcodes\LogViewer\LogFolder;
-use Opcodes\LogViewer\LogFolderCollection;
-use Opcodes\LogViewer\Readers\LogReaderInterface;
+use Nilisnone\LogViewer\Host;
+use Nilisnone\LogViewer\HostCollection;
+use Nilisnone\LogViewer\LogFile;
+use Nilisnone\LogViewer\LogFileCollection;
+use Nilisnone\LogViewer\LogFolder;
+use Nilisnone\LogViewer\LogFolderCollection;
+use Nilisnone\LogViewer\Readers\LogReaderInterface;
 
 /**
- * @see \Opcodes\LogViewer\LogViewerService
+ * @see \Nilisnone\LogViewer\LogViewerService
  *
  * @method static string version()
  * @method static bool assetsAreCurrent()

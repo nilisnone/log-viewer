@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Gate;
-use Opcodes\LogViewer\Facades\LogViewer;
-use Opcodes\LogViewer\LogFile;
-use Opcodes\LogViewer\LogFolder;
+use Nilisnone\LogViewer\Facades\LogViewer;
+use Nilisnone\LogViewer\LogFile;
+use Nilisnone\LogViewer\LogFolder;
 
 test('can delete every folder by default', function () {
     generateLogFiles([$fileName = 'laravel.log']);

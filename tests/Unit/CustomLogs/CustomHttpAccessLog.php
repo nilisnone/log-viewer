@@ -1,8 +1,8 @@
 <?php
 
-namespace Opcodes\LogViewer\Tests\Unit\CustomLogs;
+namespace Nilisnone\LogViewer\Tests\Unit\CustomLogs;
 
-use Opcodes\LogViewer\Logs\HttpAccessLog;
+use Nilisnone\LogViewer\Logs\HttpAccessLog;
 
 class CustomHttpAccessLog extends HttpAccessLog
 {

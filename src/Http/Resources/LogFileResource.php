@@ -1,11 +1,11 @@
 <?php
 
-namespace Opcodes\LogViewer\Http\Resources;
+namespace Nilisnone\LogViewer\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Gate;
-use Opcodes\LogViewer\LogFile;
+use Nilisnone\LogViewer\LogFile;
 
 /**
  * @mixin LogFile

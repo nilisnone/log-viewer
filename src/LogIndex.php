@@ -1,10 +1,10 @@
 <?php
 
-namespace Opcodes\LogViewer;
+namespace Nilisnone\LogViewer;
 
 use Carbon\CarbonInterface;
 use Illuminate\Support\Collection;
-use Opcodes\LogViewer\Utils\Utils;
+use Nilisnone\LogViewer\Utils\Utils;
 
 class LogIndex
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Opcodes\LogViewer;
+namespace Nilisnone\LogViewer;
 
-use Opcodes\LogViewer\LogLevels\LevelInterface;
+use Nilisnone\LogViewer\LogLevels\LevelInterface;
 
 class LevelCount
 {

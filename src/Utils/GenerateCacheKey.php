@@ -1,10 +1,10 @@
 <?php
 
-namespace Opcodes\LogViewer\Utils;
+namespace Nilisnone\LogViewer\Utils;
 
-use Opcodes\LogViewer\Facades\LogViewer;
-use Opcodes\LogViewer\LogFile;
-use Opcodes\LogViewer\LogIndex;
+use Nilisnone\LogViewer\Facades\LogViewer;
+use Nilisnone\LogViewer\LogFile;
+use Nilisnone\LogViewer\LogIndex;
 
 class GenerateCacheKey
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Opcodes\LogViewer\LogLevels;
+namespace Nilisnone\LogViewer\LogLevels;
 
 class NginxStatusLevel implements LevelInterface
 {

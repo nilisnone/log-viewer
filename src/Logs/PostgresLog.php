@@ -1,10 +1,10 @@
 <?php
 
-namespace Opcodes\LogViewer\Logs;
+namespace Nilisnone\LogViewer\Logs;
 
 use Carbon\CarbonInterface;
 use Illuminate\Support\Carbon;
-use Opcodes\LogViewer\LogLevels\PostgresLevel;
+use Nilisnone\LogViewer\LogLevels\PostgresLevel;
 
 class PostgresLog extends Log
 {

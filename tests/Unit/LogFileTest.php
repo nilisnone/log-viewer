@@ -1,7 +1,7 @@
 <?php
 
-use Opcodes\LogViewer\LogFile;
-use Opcodes\LogViewer\Logs\LogType;
+use Nilisnone\LogViewer\LogFile;
+use Nilisnone\LogViewer\Logs\LogType;
 
 test('log file can be instantiated with just a path to the file', function () {
     $path = storage_path('logs/laravel.log');

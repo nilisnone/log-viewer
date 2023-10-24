@@ -1,15 +1,13 @@
 {
-    "name": "opcodesio/log-viewer",
+    "name": "nilisnone/log-viewer",
     "description": "Fast and easy-to-use log viewer for your Laravel application",
     "keywords": [
-        "arukompas",
-        "opcodesio",
         "laravel",
         "logs",
         "log viewer",
         "better-log-viewer"
     ],
-    "homepage": "https://github.com/opcodesio/log-viewer",
+    "homepage": "https://github.com/nilisnone/log-viewer",
     "license": "MIT",
     "authors": [
         {
@@ -21,7 +19,7 @@
     "require": {
         "php": "^8.0",
         "illuminate/contracts": "^8.0|^9.0|^10.0",
-        "opcodesio/mail-parser": "^0.1.1"
+        "Nilisnoneio/mail-parser": "^0.1.1"
     },
     "require-dev": {
         "guzzlehttp/guzzle": "^7.2",
@@ -38,12 +36,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Opcodes\\LogViewer\\": "src"
+            "Nilisnone\\LogViewer\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Opcodes\\LogViewer\\Tests\\": "tests"
+            "Nilisnone\\LogViewer\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -61,10 +59,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Opcodes\\LogViewer\\LogViewerServiceProvider"
+                "Nilisnone\\LogViewer\\LogViewerServiceProvider"
             ],
             "aliases": {
-                "LogViewer": "Opcodes\\LogViewer\\Facades\\LogViewer"
+                "LogViewer": "Nilisnone\\LogViewer\\Facades\\LogViewer"
             }
         }
     },

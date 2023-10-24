@@ -1,8 +1,8 @@
 <?php
 
-use Opcodes\LogViewer\LogFile;
-use Opcodes\LogViewer\LogLevels\HorizonStatusLevel;
-use Opcodes\LogViewer\Logs\LogType;
+use Nilisnone\LogViewer\LogFile;
+use Nilisnone\LogViewer\LogLevels\HorizonStatusLevel;
+use Nilisnone\LogViewer\Logs\LogType;
 
 it('can process new Horizon logs', function () {
     $file = generateLogFile('horizon_new.log', content: <<<EOF

@@ -1,9 +1,9 @@
 <?php
 
-namespace Opcodes\LogViewer\Http\Controllers;
+namespace Nilisnone\LogViewer\Http\Controllers;
 
-use Opcodes\LogViewer\Facades\LogViewer;
-use Opcodes\LogViewer\Utils\Utils;
+use Nilisnone\LogViewer\Facades\LogViewer;
+use Nilisnone\LogViewer\Utils\Utils;
 
 class IndexController
 {

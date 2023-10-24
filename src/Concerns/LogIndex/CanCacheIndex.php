@@ -1,11 +1,11 @@
 <?php
 
-namespace Opcodes\LogViewer\Concerns\LogIndex;
+namespace Nilisnone\LogViewer\Concerns\LogIndex;
 
 use Carbon\CarbonInterface;
-use Opcodes\LogViewer\Facades\Cache;
-use Opcodes\LogViewer\LogIndexChunk;
-use Opcodes\LogViewer\Utils\GenerateCacheKey;
+use Nilisnone\LogViewer\Facades\Cache;
+use Nilisnone\LogViewer\LogIndexChunk;
+use Nilisnone\LogViewer\Utils\GenerateCacheKey;
 
 trait CanCacheIndex
 {

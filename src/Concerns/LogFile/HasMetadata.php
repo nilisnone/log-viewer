@@ -1,6 +1,6 @@
 <?php
 
-namespace Opcodes\LogViewer\Concerns\LogFile;
+namespace Nilisnone\LogViewer\Concerns\LogFile;
 
 trait HasMetadata
 {

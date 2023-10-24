@@ -25,9 +25,9 @@ To get started, choose your area of interest:
 
 ### 👥 Issues & Discussions
 
-You can interact with users by sharing information and asking/answering questions in our [Discussions](https://github.com/opcodesio/log-viewer/discussions) tab.
+You can interact with users by sharing information and asking/answering questions in our [Discussions](https://github.com/Nilisnoneio/log-viewer/discussions) tab.
 
-Also, you can contribute by reporting bugs, patching problems or providing technical support in our [Issues](https://github.com/opcodesio/log-viewer/issues) tab.
+Also, you can contribute by reporting bugs, patching problems or providing technical support in our [Issues](https://github.com/Nilisnoneio/log-viewer/issues) tab.
 
 <br/>
 
@@ -37,7 +37,7 @@ Also, you can contribute by reporting bugs, patching problems or providing techn
 
 Documentation is key for any project success!
 
-Currently, our documentation is stored at the [README](https://github.com/opcodesio/log-viewer/blob/main/README.md) file of this repository.
+Currently, our documentation is stored at the [README](https://github.com/Nilisnoneio/log-viewer/blob/main/README.md) file of this repository.
 
 You may contribute by improving existing information, covering missing topics, or fixing typos and grammar errors.
 
@@ -51,7 +51,7 @@ The documentation official language is in English.
 
 If you enjoy Log Viewer, please consider talking about our project in your community.
 
-Share this [repository link](https://github.com/opcodesio/log-viewer/) on Twitter, YouTube, Discord or any other social network you are part of.
+Share this [repository link](https://github.com/Nilisnoneio/log-viewer/) on Twitter, YouTube, Discord or any other social network you are part of.
 
 You are also welcome to write articles, reviews and tutorials about this project on your blog or programming website.
 
@@ -159,7 +159,7 @@ Example:
 }
 ```
 
-Proceed with `composer require opcodesio/log-viewer`.
+Proceed with `composer require Nilisnoneio/log-viewer`.
 
 ### 📌 Step 7
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Opcodes\LogViewer\Http\Middleware;
+namespace Nilisnone\LogViewer\Http\Middleware;
 
-use Opcodes\LogViewer\Facades\LogViewer;
+use Nilisnone\LogViewer\Facades\LogViewer;
 
 class AuthorizeLogViewer
 {

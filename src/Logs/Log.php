@@ -1,18 +1,18 @@
 <?php
 
-namespace Opcodes\LogViewer\Logs;
+namespace Nilisnone\LogViewer\Logs;
 
 use Carbon\CarbonInterface;
 use Illuminate\Support\Carbon;
-use Opcodes\LogViewer\LogLevels\LaravelLogLevel;
-use Opcodes\LogViewer\LogLevels\LevelInterface;
+use Nilisnone\LogViewer\LogLevels\LaravelLogLevel;
+use Nilisnone\LogViewer\LogLevels\LevelInterface;
 
 class Log
 {
     /** @var string The name of the log type, visible to humans in the UI. */
     public static string $name = 'Log';
 
-    /** @var string|LevelInterface The class which defines the severities found on these logs. Should implement the \Opcodes\LogViewer\LogLevels\LevelInterface interface */
+    /** @var string|LevelInterface The class which defines the severities found on these logs. Should implement the \Nilisnone\LogViewer\LogLevels\LevelInterface interface */
     public static string $levelClass = LaravelLogLevel::class;
 
     /** @var string The regular expression used to extract various data points of the log */

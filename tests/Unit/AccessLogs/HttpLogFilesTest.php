@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\File;
-use Opcodes\LogViewer\Facades\LogViewer;
-use Opcodes\LogViewer\LogFile;
-use Opcodes\LogViewer\Logs\LogType;
+use Nilisnone\LogViewer\Facades\LogViewer;
+use Nilisnone\LogViewer\LogFile;
+use Nilisnone\LogViewer\Logs\LogType;
 
 beforeEach(function () {
     File::makeDirectory(storage_path('logs/http'), 0755, true);

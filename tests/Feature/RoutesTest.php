@@ -33,5 +33,5 @@ test('a domain is optional', function () {
 
 function reloadRoutes(): void
 {
-    (new \Opcodes\LogViewer\LogViewerServiceProvider(app()))->boot();
+    (new \Nilisnone\LogViewer\LogViewerServiceProvider(app()))->boot();
 }

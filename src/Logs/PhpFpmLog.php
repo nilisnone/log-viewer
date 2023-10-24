@@ -1,6 +1,6 @@
 <?php
 
-namespace Opcodes\LogViewer\Logs;
+namespace Nilisnone\LogViewer\Logs;
 
 class PhpFpmLog extends Log
 {

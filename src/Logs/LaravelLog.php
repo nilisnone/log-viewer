@@ -1,13 +1,13 @@
 <?php
 
-namespace Opcodes\LogViewer\Logs;
+namespace Nilisnone\LogViewer\Logs;
 
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
-use Opcodes\LogViewer\Facades\LogViewer;
-use Opcodes\LogViewer\LogLevels\LaravelLogLevel;
-use Opcodes\LogViewer\Utils\Utils;
-use Opcodes\MailParser\Message;
+use Nilisnone\LogViewer\Facades\LogViewer;
+use Nilisnone\LogViewer\LogLevels\LaravelLogLevel;
+use Nilisnone\LogViewer\Utils\Utils;
+use Nilisnone\MailParser\Message;
 
 class LaravelLog extends Log
 {

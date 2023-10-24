@@ -1,11 +1,11 @@
 <?php
 
-namespace Opcodes\LogViewer\Readers;
+namespace Nilisnone\LogViewer\Readers;
 
-use Opcodes\LogViewer\Concerns;
-use Opcodes\LogViewer\LogFile;
-use Opcodes\LogViewer\LogLevels\LevelInterface;
-use Opcodes\LogViewer\Logs\Log;
+use Nilisnone\LogViewer\Concerns;
+use Nilisnone\LogViewer\LogFile;
+use Nilisnone\LogViewer\LogLevels\LevelInterface;
+use Nilisnone\LogViewer\Logs\Log;
 
 abstract class BaseLogReader
 {

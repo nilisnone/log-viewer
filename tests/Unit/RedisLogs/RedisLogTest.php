@@ -1,8 +1,8 @@
 <?php
 
-use Opcodes\LogViewer\LogFile;
-use Opcodes\LogViewer\LogLevels\RedisLogLevel;
-use Opcodes\LogViewer\Logs\LogType;
+use Nilisnone\LogViewer\LogFile;
+use Nilisnone\LogViewer\LogLevels\RedisLogLevel;
+use Nilisnone\LogViewer\Logs\LogType;
 
 it('can process Redis logs', function () {
     $file = generateLogFile('redis.log', <<<'LOG'
