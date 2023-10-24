@@ -17,6 +17,7 @@ class LogType
     const POSTGRES = 'postgres';
     const REDIS = 'redis';
     const SUPERVISOR = 'supervisor';
+    const SQL = 'sql';
 
     public string $value;
 
@@ -45,6 +46,7 @@ class LogType
             self::POSTGRES => 'Postgres',
             self::REDIS => 'Redis',
             self::SUPERVISOR => 'Supervisor',
+            self::SQL => 'SQL',
             default => isset($class) ? ($class::$name ?? 'Unknown') : 'Unknown',
         };
     }

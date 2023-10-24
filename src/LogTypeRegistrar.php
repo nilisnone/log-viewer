@@ -30,6 +30,7 @@ class LogTypeRegistrar
         [LogType::POSTGRES, PostgresLog::class],
         [LogType::REDIS, RedisLog::class],
         [LogType::SUPERVISOR, SupervisorLog::class],
+        [LogType::SQL, SqlLog::class],
     ];
 
     public function register(string $type, string $class): void
