@@ -23,10 +23,6 @@ php artisan log-viewer:publish
 
 
 ```bash
-php artisan log-viewer:publish
-```
-
-```bash
 php artisan vendor:publish --tag="log-viewer-config"
 ```
 
