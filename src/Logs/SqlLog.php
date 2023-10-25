@@ -2,14 +2,14 @@
 
 namespace Nilisnone\LogViewer\Logs;
 
-use Nilisnone\LogViewer\LogLevels\RedisLogLevel;
+use Nilisnone\LogViewer\LogLevels\LaravelLogLevel;
 use function Symfony\Component\Translation\t;
 
 class SqlLog extends Log
 {
     public static string $name = 'Sql';
     public static string $regex = '';
-    public static string $levelClass = RedisLogLevel::class;
+    public static string $levelClass = LaravelLogLevel::class;
     public static array $columns = [
         ['label' => 'Datetime', 'data_path' => 'datetime'],
         ['label' => 'PID', 'data_path' => 'context.pid'],

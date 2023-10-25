@@ -2,14 +2,14 @@
 
 namespace Nilisnone\LogViewer\Logs;
 
-use Nilisnone\LogViewer\LogLevels\RedisLogLevel;
+use Nilisnone\LogViewer\LogLevels\LaravelLogLevel;
 use function Symfony\Component\Translation\t;
 
 class ZzLog extends Log
 {
     public static string $name = 'zz_log';
     public static string $regex = '';
-    public static string $levelClass = RedisLogLevel::class;
+    public static string $levelClass = LaravelLogLevel::class;
     public static array $columns = [
         ['label' => 'Severity', 'data_path' => 'level'],
         ['label' => 'Datetime', 'data_path' => 'datetime'],
