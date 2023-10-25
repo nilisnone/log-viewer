@@ -11,10 +11,9 @@ class ZzLog extends Log
     public static string $regex = '';
     public static string $levelClass = RedisLogLevel::class;
     public static array $columns = [
+        ['label' => 'Severity', 'data_path' => 'level'],
         ['label' => 'Datetime', 'data_path' => 'datetime'],
         ['label' => 'LogChannel', 'data_path' => 'context.logChannel'],
-        ['label' => 'Performance', 'data_path' => 'context.performance'],
-        ['label' => 'Severity', 'data_path' => 'level'],
         ['label' => 'Message', 'data_path' => 'message'],
     ];
 
@@ -27,7 +26,7 @@ class ZzLog extends Log
         $this->index = $index;
 
         $this->datetime = static::parseDatetime($text['@timestamp'] ?? '');
-        $this->level = $text['level'] ?? 'info';
+        $this->level = ucfirst($text['level'] ?? 'info');
         $this->message = $text['msg'] ?? 'cannot found msg';
         $this->extra = @json_decode($text['extra'] ?? '', true) ?? [];
         $this->context = $text;
@@ -43,7 +42,7 @@ class ZzLog extends Log
             return false;
         }
         $timestamp = static::parseDatetime($text['biz_created_at'] ?? $text['_timestamp'] ?? '')?->timestamp;
-        $level = $text['level'] ?? 'info';
+        $level = ucfirst($text['level'] ?? 'info');
         return true;
     }
 }
