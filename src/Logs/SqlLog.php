@@ -28,7 +28,7 @@ class SqlLog extends Log
 
         $this->datetime = static::parseDatetime($text['biz_created_at'] ?? $text['_timestamp'] ?? '');
         // todo level info
-        $this->level = 'Info';
+        $this->level = 'INFO';
         $this->message = $text['trace_sql'] ?? ($text['msg'] ?? '');
         $this->context = $text;
     }
@@ -43,7 +43,7 @@ class SqlLog extends Log
             return false;
         }
         $timestamp = static::parseDatetime($text['biz_created_at'] ?? $text['_timestamp'] ?? '')?->timestamp;
-        $level = 'Info';
+        $level = 'INFO';
         return true;
     }
 }

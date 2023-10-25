@@ -26,7 +26,7 @@ class ZzLog extends Log
         $this->index = $index;
 
         $this->datetime = static::parseDatetime($text['@timestamp'] ?? '');
-        $this->level = ucfirst($text['level'] ?? 'info');
+        $this->level = strtoupper($text['level'] ?? 'info');
         $this->message = $text['msg'] ?? 'cannot found msg';
         $this->extra = @json_decode($text['extra'] ?? '', true) ?? [];
         $this->context = $text;
@@ -42,7 +42,7 @@ class ZzLog extends Log
             return false;
         }
         $timestamp = static::parseDatetime($text['biz_created_at'] ?? $text['_timestamp'] ?? '')?->timestamp;
-        $level = ucfirst($text['level'] ?? 'info');
+        $level = strtoupper($text['level'] ?? 'info');
         return true;
     }
 }
