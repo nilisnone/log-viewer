@@ -29,7 +29,7 @@ class ZzLog extends Log
         $this->datetime = static::parseDatetime($text['@timestamp'] ?? '');
         $this->level = $text['level'] ?? 'info';
         $this->message = $text['msg'] ?? 'cannot found msg';
-        $this->extra = $text['extra'] ?? '';
+        $this->extra = @json_decode($text['extra'] ?? '', true) ?? [];
         $this->context = $text;
     }
 
