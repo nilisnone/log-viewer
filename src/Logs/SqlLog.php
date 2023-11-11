@@ -11,10 +11,9 @@ class SqlLog extends Log
     public static string $regex = '';
     public static string $levelClass = LaravelLogLevel::class;
     public static array $columns = [
-        ['label' => 'Datetime', 'data_path' => 'datetime'],
-        ['label' => 'PID', 'data_path' => 'context.pid'],
-        ['label' => 'Role', 'data_path' => 'context.role'],
         ['label' => 'Severity', 'data_path' => 'level'],
+        ['label' => 'Datetime', 'data_path' => 'datetime'],
+        ['label' => 'Duration', 'data_path' => 'run_ms'],
         ['label' => 'Message', 'data_path' => 'message'],
     ];
 
