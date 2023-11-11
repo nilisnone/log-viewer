@@ -13,7 +13,7 @@ class SqlLog extends Log
     public static array $columns = [
         ['label' => 'Severity', 'data_path' => 'level'],
         ['label' => 'Datetime', 'data_path' => 'datetime'],
-        ['label' => 'Duration', 'data_path' => 'run_ms'],
+        ['label' => 'Duration', 'data_path' => 'context.run_ms'],
         ['label' => 'Message', 'data_path' => 'message'],
     ];
 
