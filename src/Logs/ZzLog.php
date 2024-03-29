@@ -25,7 +25,7 @@ class ZzLog extends Log
         $this->filePosition = $filePosition;
         $this->index = $index;
 
-        $this->datetime = static::parseDatetime($text['@timestamp'] ?? '');
+        $this->datetime = static::parseDatetime($text['start'] ?? '');
         $this->level = strtoupper($text['level'] ?? 'info');
         $this->message = $text['msg'] ?? 'cannot found msg';
         $this->extra = @json_decode($text['extra'] ?? '', true) ?? [];
@@ -41,7 +41,7 @@ class ZzLog extends Log
         if (empty($text['@timestamp']) && empty($text['env'])) {
             return false;
         }
-        $timestamp = static::parseDatetime($text['biz_created_at'] ?? $text['_timestamp'] ?? '')?->timestamp;
+        $timestamp = static::parseDatetime($text['start'] ?? $text['@timestamp'] ?? '')?->timestamp;
         $level = strtoupper($text['level'] ?? 'info');
         return true;
     }
