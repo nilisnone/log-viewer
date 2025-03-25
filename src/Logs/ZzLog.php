@@ -3,7 +3,6 @@
 namespace Nilisnone\LogViewer\Logs;
 
 use Nilisnone\LogViewer\LogLevels\LaravelLogLevel;
-use function Symfony\Component\Translation\t;
 
 class ZzLog extends Log
 {
@@ -17,7 +16,7 @@ class ZzLog extends Log
         ['label' => 'Message', 'data_path' => 'message'],
     ];
 
-    public function __construct(string $text, string $fileIdentifier = null, int $filePosition = null, int $index = null)
+    public function __construct(string $text, ?string $fileIdentifier = null, ?int $filePosition = null, ?int $index = null)
     {
         $this->text = $text;
         $text = @json_decode($text, true);
@@ -32,7 +31,7 @@ class ZzLog extends Log
         $this->context = $text;
     }
 
-    public static function matches(string $text, int &$timestamp = null, string &$level = null): bool
+    public static function matches(string $text, ?int &$timestamp = null, ?string &$level = null): bool
     {
         $text = @json_decode($text, true);
         if (json_last_error() !== JSON_ERROR_NONE) {
@@ -43,6 +42,7 @@ class ZzLog extends Log
         }
         $timestamp = static::parseDatetime($text['start'] ?? $text['@timestamp'] ?? '')?->timestamp;
         $level = strtoupper($text['level'] ?? 'info');
+
         return true;
     }
 }

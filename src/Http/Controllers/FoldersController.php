@@ -4,10 +4,10 @@ namespace Nilisnone\LogViewer\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\URL;
 use Nilisnone\LogViewer\Facades\LogViewer;
 use Nilisnone\LogViewer\Http\Resources\LogFolderResource;
 use Nilisnone\LogViewer\LogFile;
-use Illuminate\Support\Facades\URL;
 use Opcodes\LogViewer\Facades\LogViewer;
 use Opcodes\LogViewer\Http\Resources\LogFolderResource;
 use Opcodes\LogViewer\LogFile;

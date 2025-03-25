@@ -1,6 +1,5 @@
 <?php
 
-use Nilisnone\LogViewer\LogLevels\LaravelLogLevel;
 use Nilisnone\LogViewer\Logs\LaravelLog;
 use Opcodes\LogViewer\Logs\LaravelLog;
 

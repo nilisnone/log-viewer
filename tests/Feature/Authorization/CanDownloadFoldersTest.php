@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\URL;
 use Nilisnone\LogViewer\Facades\LogViewer;
 use Nilisnone\LogViewer\LogFolder;
-use Illuminate\Support\Facades\URL;
 use Opcodes\LogViewer\Facades\LogViewer;
 use Opcodes\LogViewer\LogFolder;
 

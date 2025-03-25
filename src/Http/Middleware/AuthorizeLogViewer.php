@@ -2,9 +2,9 @@
 
 namespace Nilisnone\LogViewer\Http\Middleware;
 
-use Nilisnone\LogViewer\Facades\LogViewer;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Gate;
+use Nilisnone\LogViewer\Facades\LogViewer;
 use Opcodes\LogViewer\Facades\LogViewer;
 
 class AuthorizeLogViewer

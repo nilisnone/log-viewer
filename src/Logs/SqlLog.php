@@ -3,7 +3,6 @@
 namespace Nilisnone\LogViewer\Logs;
 
 use Nilisnone\LogViewer\LogLevels\LaravelLogLevel;
-use function Symfony\Component\Translation\t;
 
 class SqlLog extends Log
 {
@@ -17,7 +16,7 @@ class SqlLog extends Log
         ['label' => 'Message', 'data_path' => 'message'],
     ];
 
-    public function __construct(string $text, string $fileIdentifier = null, int $filePosition = null, int $index = null)
+    public function __construct(string $text, ?string $fileIdentifier = null, ?int $filePosition = null, ?int $index = null)
     {
         $this->text = $text;
         $text = @json_decode($text, true);
@@ -32,17 +31,18 @@ class SqlLog extends Log
         $this->context = $text;
     }
 
-    public static function matches(string $text, int &$timestamp = null, string &$level = null): bool
+    public static function matches(string $text, ?int &$timestamp = null, ?string &$level = null): bool
     {
         $text = @json_decode($text, true);
         if (json_last_error() !== JSON_ERROR_NONE) {
             return false;
         }
-        if (!in_array($text['msg'] ?? '', ['trace-app', 'trace-sql'])) {
+        if (! in_array($text['msg'] ?? '', ['trace-app', 'trace-sql'])) {
             return false;
         }
         $timestamp = static::parseDatetime($text['biz_created_at'] ?? $text['_timestamp'] ?? '')?->timestamp;
         $level = 'INFO';
+
         return true;
     }
 }

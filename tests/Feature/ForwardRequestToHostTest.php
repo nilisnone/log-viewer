@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Http;
-use Nilisnone\LogViewer\Facades\LogViewer;
 use Illuminate\Support\Str;
+use Nilisnone\LogViewer\Facades\LogViewer;
 use Opcodes\LogViewer\Facades\LogViewer;
 
 beforeEach(function () {

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Gate;
-use Nilisnone\LogViewer\LogFile;
 use Illuminate\Support\Facades\URL;
+use Nilisnone\LogViewer\LogFile;
 use Opcodes\LogViewer\LogFile;
 
 use function Pest\Laravel\get;
