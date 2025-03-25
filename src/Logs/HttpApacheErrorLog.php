@@ -5,6 +5,8 @@ namespace Nilisnone\LogViewer\Logs;
 use Carbon\CarbonInterface;
 use Illuminate\Support\Carbon;
 use Nilisnone\LogViewer\LogLevels\LaravelLogLevel;
+use Opcodes\LogViewer\Facades\LogViewer;
+use Opcodes\LogViewer\LogLevels\LaravelLogLevel;
 
 class HttpApacheErrorLog extends Log
 {
@@ -14,9 +16,9 @@ class HttpApacheErrorLog extends Log
 
     protected function fillMatches(array $matches = []): void
     {
-        $this->datetime = static::parseDateTime($matches['datetime'] ?? null)?->tz(
-            config('log-viewer.timezone', config('app.timezone', 'UTC'))
-        );
+        $datetime = static::parseDateTime($matches['datetime'] ?? null);
+        $this->datetime = $datetime?->setTimezone(LogViewer::timezone());
+
         $this->level = $matches['level'] ?? null;
         $this->message = $matches['message'] ?? null;
 

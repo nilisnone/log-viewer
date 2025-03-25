@@ -4,6 +4,9 @@ namespace Nilisnone\LogViewer\Logs;
 
 use Nilisnone\LogViewer\Exceptions\SkipLineException;
 use Nilisnone\LogViewer\LogLevels\HorizonStatusLevel;
+use Opcodes\LogViewer\Exceptions\SkipLineException;
+use Opcodes\LogViewer\Facades\LogViewer;
+use Opcodes\LogViewer\LogLevels\HorizonStatusLevel;
 
 class HorizonLog extends Log
 {
@@ -19,9 +22,9 @@ class HorizonLog extends Log
 
     protected function fillMatches(array $matches = []): void
     {
-        $this->datetime = $this->parseDatetime($matches['datetime'])?->tz(
-            config('log-viewer.timezone', config('app.timezone', 'UTC'))
-        );
+        $datetime = $this->parseDateTime($matches['datetime'] ?? null);
+        $this->datetime = $datetime?->setTimezone(LogViewer::timezone());
+
         $this->level = $matches['level'];
         $this->message = $matches['message'];
         $this->context = array_filter([
@@ -31,7 +34,7 @@ class HorizonLog extends Log
         ]);
     }
 
-    public static function matches(string $text, int &$timestamp = null, string &$level = null): bool
+    public static function matches(string $text, ?int &$timestamp = null, ?string &$level = null): bool
     {
         return parent::matches($text, $timestamp, $level)
             || (str_contains($text, 'Horizon started successfully') && throw new SkipLineException);

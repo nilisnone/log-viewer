@@ -39,7 +39,7 @@ class LogViewerServiceProvider extends ServiceProvider
 
         if (! $this->app->bound(LogTypeRegistrar::class)) {
             $this->app->singleton(LogTypeRegistrar::class, function () {
-                return new LogTypeRegistrar();
+                return new LogTypeRegistrar;
             });
         }
     }
@@ -114,7 +114,7 @@ class LogViewerServiceProvider extends ServiceProvider
     {
         $this->publishes([
             self::basePath('/public') => public_path('vendor/log-viewer'),
-        ], ['log-viewer-assets', 'laravel-assets']);
+        ], 'log-viewer-assets');
     }
 
     protected function defineDefaultGates()

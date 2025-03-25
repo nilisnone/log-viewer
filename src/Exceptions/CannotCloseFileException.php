@@ -4,6 +4,4 @@ namespace Nilisnone\LogViewer\Exceptions;
 
 use Exception;
 
-class CannotCloseFileException extends Exception
-{
-}
+class CannotCloseFileException extends Exception {}

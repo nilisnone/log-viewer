@@ -76,12 +76,12 @@ trait CanFilterUsingIndex
         return $this;
     }
 
-    public function search(string $query = null): static
+    public function search(?string $query = null): static
     {
         return $this->setQuery($query);
     }
 
-    protected function setQuery(string $query = null): static
+    protected function setQuery(?string $query = null): static
     {
         $this->closeFile();
 
@@ -90,7 +90,7 @@ trait CanFilterUsingIndex
             $this->only(null);
             $this->onlyShowIndex = intval(explode(':', $query)[1]);
         } elseif (! empty($query)) {
-            $query = '~'.$query.'~i';
+            $query = '~'.$query.'~iu';
 
             Utils::validateRegex($query);
 

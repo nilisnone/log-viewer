@@ -6,10 +6,9 @@ class HttpStatusCodeLevel implements LevelInterface
 {
     public function __construct(
         public string $value,
-    ) {
-    }
+    ) {}
 
-    public static function from(string $value = null): LevelInterface
+    public static function from(?string $value = null): LevelInterface
     {
         return new static($value);
     }
@@ -28,7 +27,9 @@ class HttpStatusCodeLevel implements LevelInterface
     {
         $value = intval($this->value);
 
-        if ($value < 300) {
+        if ($value < 250) {
+            return LevelClass::notice();
+        } elseif ($value < 300) {
             return LevelClass::success();
         } elseif ($value < 400) {
             return LevelClass::info();

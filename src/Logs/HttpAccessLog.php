@@ -5,12 +5,14 @@ namespace Nilisnone\LogViewer\Logs;
 use Carbon\CarbonInterface;
 use Illuminate\Support\Carbon;
 use Nilisnone\LogViewer\LogLevels\HttpStatusCodeLevel;
+use Opcodes\LogViewer\Facades\LogViewer;
+use Opcodes\LogViewer\LogLevels\HttpStatusCodeLevel;
 
 class HttpAccessLog extends Log
 {
     public static string $name = 'HTTP Access';
     public static string $levelClass = HttpStatusCodeLevel::class;
-    public static string $regex = '/(?P<ip>\S+) (?P<identity>\S+) (?P<remote_user>\S+) \[(?P<datetime>.+)\] "(?P<method>\S+) (?P<path>\S+) (?P<http_version>\S+)" (?P<status_code>\S+) (?P<content_length>\S+) "(?P<referrer>[^"]*)" "(?P<user_agent>[^"]*)"/';
+    public static string $regex = '/(?P<ip>\S+) (?P<identity>\S+) (?P<remote_user>\S+) \[(?P<datetime>.+)\] "(?P<method>\S+) (?P<path>\S+) (?P<http_version>\S+)"( (?P<status_code>\S+))?( (?P<content_length>\S+))?( "(?P<referrer>[^"]*)")?( "(?P<user_agent>[^"]*)")?/';
     public static string $regexLevelKey = 'status_code';
     public static array $columns = [
         ['label' => 'Datetime', 'data_path' => 'datetime'],
@@ -34,9 +36,9 @@ class HttpAccessLog extends Log
             'user_agent' => $matches['user_agent'] ?? null,
         ];
 
-        $this->datetime = static::parseDateTime($matches['datetime'] ?? null)?->tz(
-            config('log-viewer.timezone', config('app.timezone', 'UTC'))
-        );
+        $datetime = static::parseDateTime($matches['datetime'] ?? null);
+        $this->datetime = $datetime?->setTimezone(LogViewer::timezone());
+
         $this->level = $matches['status_code'] ?? null;
         $this->message = sprintf(
             '%s %s',

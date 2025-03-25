@@ -21,19 +21,27 @@ class LogFile
     public string $name;
     public string $identifier;
     public string $subFolder = '';
+    public string $displayPath;
     private ?string $type = null;
     private array $_logIndexCache;
 
-    public function __construct(string $path, string $type = null)
+    public function __construct(string $path, ?string $type = null, ?string $pathAlias = null)
     {
         $this->path = $path;
         $this->name = basename($path);
-        $this->identifier = Utils::shortMd5($path).'-'.$this->name;
+        $this->identifier = Utils::shortMd5(Utils::getLocalIP().':'.$path).'-'.$this->name;
         $this->type = $type;
+        $this->displayPath = empty($pathAlias)
+            ? $path
+            : $pathAlias.DIRECTORY_SEPARATOR.$this->name;
 
         // Let's remove the file name because we already know it.
         $this->subFolder = str_replace($this->name, '', $path);
         $this->subFolder = rtrim($this->subFolder, DIRECTORY_SEPARATOR);
+
+        if (! empty($pathAlias)) {
+            $this->subFolder = $pathAlias;
+        }
 
         $this->loadMetadata();
     }
@@ -59,7 +67,7 @@ class LogFile
         return new LogType($this->type ?? LogType::DEFAULT);
     }
 
-    public function index(string $query = null): LogIndex
+    public function index(?string $query = null): LogIndex
     {
         if (! isset($this->_logIndexCache[$query])) {
             $this->_logIndexCache[$query] = new LogIndex($this, $query);
@@ -94,7 +102,7 @@ class LogFile
 
     public function subFolderIdentifier(): string
     {
-        return Utils::shortMd5($this->subFolder);
+        return Utils::shortMd5(Utils::getLocalIP().':'.$this->subFolder);
     }
 
     public function downloadUrl(): string
@@ -171,7 +179,7 @@ class LogFile
         return $this->getMetadata('latest_timestamp') ?? $this->mtime();
     }
 
-    public function scan(int $maxBytesToScan = null, bool $force = false): void
+    public function scan(?int $maxBytesToScan = null, bool $force = false): void
     {
         $this->logs()->scan($maxBytesToScan, $force);
     }
@@ -184,7 +192,7 @@ class LogFile
     /**
      * @throws InvalidRegularExpression
      */
-    public function search(string $query = null): LogReaderInterface
+    public function search(?string $query = null): LogReaderInterface
     {
         return $this->logs()->search($query);
     }

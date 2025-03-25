@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Nilisnone\LogViewer\Facades\LogViewer;
 use Nilisnone\LogViewer\Http\Resources\LogFileResource;
+use Illuminate\Support\Facades\URL;
+use Opcodes\LogViewer\Facades\LogViewer;
+use Opcodes\LogViewer\Http\Resources\LogFileResource;
 
 class FilesController
 {
@@ -22,13 +25,26 @@ class FilesController
         return LogFileResource::collection($files);
     }
 
-    public function download(string $fileIdentifier)
+    public function requestDownload(Request $request, string $fileIdentifier)
     {
         $file = LogViewer::getFile($fileIdentifier);
 
         abort_if(is_null($file), 404);
 
         Gate::authorize('downloadLogFile', $file);
+
+        return response()->json([
+            'url' => URL::temporarySignedRoute(
+                'log-viewer.files.download',
+                now()->addMinute(),
+                ['fileIdentifier' => $fileIdentifier]
+            ),
+        ]);
+    }
+
+    public function download(string $fileIdentifier)
+    {
+        $file = LogViewer::getFile($fileIdentifier);
 
         return $file->download();
     }

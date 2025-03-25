@@ -3,6 +3,8 @@
 namespace Nilisnone\LogViewer\Logs;
 
 use Nilisnone\LogViewer\LogLevels\HorizonStatusLevel;
+use Opcodes\LogViewer\Facades\LogViewer;
+use Opcodes\LogViewer\LogLevels\HorizonStatusLevel;
 
 class HorizonOldLog extends Log
 {
@@ -18,9 +20,9 @@ class HorizonOldLog extends Log
 
     protected function fillMatches(array $matches = []): void
     {
-        $this->datetime = $this->parseDatetime($matches['datetime'])?->tz(
-            config('log-viewer.timezone', config('app.timezone', 'UTC'))
-        );
+        $datetime = static::parseDateTime($matches['datetime'] ?? null);
+        $this->datetime = $datetime?->setTimezone(LogViewer::timezone());
+
         $this->level = $matches['level'];
         $this->message = $matches['message'];
         $this->context = [

@@ -9,6 +9,10 @@ class IndexController
 {
     public function __invoke()
     {
+        if (config('log-viewer.api_only')) {
+            abort(404);
+        }
+
         return view(LogViewer::getViewLayout(), [
             'logViewerScriptVariables' => [
                 'headers' => (object) [],
@@ -23,6 +27,7 @@ class IndexController
 
                 'supports_hosts' => LogViewer::supportsHostsFeature(),
                 'hosts' => LogViewer::getHosts(),
+                'per_page_options' => config('log-viewer.per_page_options') ?? [10, 25, 50, 100, 250, 500],
             ],
         ]);
     }

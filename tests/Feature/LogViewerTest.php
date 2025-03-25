@@ -25,6 +25,16 @@ it('properly excludes log files', function () {
     assertNotContains('other.log', $fileNames);
 });
 
+it('properly excludes log files added by aliased include', function () {
+    config()->set('log-viewer.include_files', ['*.log' => 'Alias']);
+    config()->set('log-viewer.exclude_files', ['*other*']);
+
+    $fileNames = LogViewer::getFiles()->map->name;
+
+    assertContains('laravel.log', $fileNames);
+    assertNotContains('other.log', $fileNames);
+});
+
 it('hides unknown log files', function () {
     config()->set('log-viewer.hide_unknown_files', true);
     $unknownFile = generateLogFile('unknown.log', content: 'unknown log content');
@@ -34,4 +44,23 @@ it('hides unknown log files', function () {
     assertNotContains($unknownFile->name, $fileNames);
     assertContains('laravel.log', $fileNames);
     assertContains('other.log', $fileNames);
+});
+
+it('can get the timezone', function () {
+    config()->set('log-viewer.timezone', 'Europe/Vilnius');
+
+    expect(LogViewer::timezone())->toBe('Europe/Vilnius');
+});
+
+it('defaults to the app timezone', function () {
+    config()->set('app.timezone', 'Europe/Vilnius');
+
+    expect(LogViewer::timezone())->toBe('Europe/Vilnius');
+});
+
+it('defaults to UTC if no timezone is set anywhere', function () {
+    config()->set('app.timezone', null);
+    config()->set('log-viewer.timezone', null);
+
+    expect(LogViewer::timezone())->toBe('UTC');
 });

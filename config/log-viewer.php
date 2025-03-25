@@ -12,6 +12,10 @@ return [
 
     'enabled' => env('LOG_VIEWER_ENABLED', true),
 
+    'api_only' => env('LOG_VIEWER_API_ONLY', false),
+
+    'require_auth_in_production' => true,
+
     /*
     |--------------------------------------------------------------------------
     | Log Viewer Domain
@@ -86,6 +90,8 @@ return [
         \Nilisnone\LogViewer\Http\Middleware\AuthorizeLogViewer::class,
     ],
 
+    'api_stateful_domains' => env('LOG_VIEWER_API_STATEFUL_DOMAINS') ? explode(',', env('LOG_VIEWER_API_STATEFUL_DOMAINS')) : null,
+
     /*
     |--------------------------------------------------------------------------
     | Log Viewer Remote hosts.
@@ -108,6 +114,7 @@ return [
         //         'username' => 'username',
         //         'password' => 'password',
         //     ],
+        //     'verify_server_certificate' => true,
         // ],
         //
         // 'production' => [
@@ -119,6 +126,7 @@ return [
         //     'headers' => [
         //         'X-Foo' => 'Bar',
         //     ],
+        //     'verify_server_certificate' => true,
         // ],
     ],
 
@@ -130,13 +138,14 @@ return [
     */
 
     'include_files' => [
+        '/var/log/sql/*',
+
         '*.log',
         '**/*.log',
 
-        // You can include paths to other log types as well, such as apache, nginx, and more.
-        '/var/log/httpd/*',
-        '/var/log/nginx/*',
-        '/var/log/sql/*',
+        // This key => value pair can be used to rename and group multiple paths into one folder in the UI.
+        '/var/log/httpd/*' => 'Apache',
+        '/var/log/nginx/*' => 'Nginx',
 
         // MacOS Apple Silicon logs
         '/opt/homebrew/var/log/nginx/*',
@@ -201,6 +210,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Cache key prefix
+    |--------------------------------------------------------------------------
+    | Log Viewer prefixes all the cache keys created with this value. If for
+    | some reason you would like to change this prefix, you can do so here.
+    | The format of Log Viewer cache keys is:
+    | {prefix}:{version}:{rest-of-the-key}
+    |
+    */
+
+    'cache_key_prefix' => 'lv',
+
+    /*
+    |--------------------------------------------------------------------------
     | Chunk size when scanning log files lazily
     |--------------------------------------------------------------------------
     | The size in MB of files to scan before updating the progress bar when searching across all files.
@@ -210,4 +232,14 @@ return [
     'lazy_scan_chunk_size_in_mb' => 50,
 
     'strip_extracted_context' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Per page options
+    |--------------------------------------------------------------------------
+    | Define the available options for number of results per page
+    |
+    */
+
+    'per_page_options' => [10, 25, 50, 100, 250, 500],
 ];

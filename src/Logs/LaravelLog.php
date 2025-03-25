@@ -13,7 +13,6 @@ class LaravelLog extends Log
 {
     public static string $name = 'Laravel';
     public static string $regex = '/\[(?P<datetime>[^\]]+)\] (?P<environment>\S+)\.(?P<level>\S+): (?P<message>.*)/';
-    public int $fullTextLength;
     public static array $columns = [
         ['label' => 'Severity', 'data_path' => 'level'],
         ['label' => 'Datetime', 'data_path' => 'datetime'],
@@ -35,13 +34,11 @@ class LaravelLog extends Log
 
         // sometimes, even the first line will have a HUGE exception with tons of debug data all in one line,
         // so in order to properly match, we must have a smaller first line...
-        $firstLineSplit = str_split($firstLine, 1000);
+        $firstLineSplit = mb_str_split($firstLine, 1000);
 
         preg_match(static::regexPattern(), array_shift($firstLineSplit), $matches);
 
-        $this->datetime = Carbon::parse($matches[1])->tz(
-            config('log-viewer.timezone', config('app.timezone', 'UTC'))
-        );
+        $this->datetime = Carbon::parse($matches[1])?->setTimezone(LogViewer::timezone());
 
         // $matches[2] contains microseconds, which is already handled
         // $matches[3] contains timezone offset, which is already handled
@@ -109,19 +106,17 @@ class LaravelLog extends Log
 
     protected function extractContextsFromFullText(): void
     {
-        // The regex pattern to find JSON strings.
-        $pattern = '/(\{(?:[^{}]|(?R))*\}|\[(?:[^\[\]]|(?R))*\])/';
         $contexts = [];
 
         // Find matches.
-        preg_match_all($pattern, $this->text, $matches);
+        $json_strings = $this->getJsonStringsFromFullText();
 
-        if (! isset($matches[0])) {
+        if (empty($json_strings)) {
             return;
         }
 
         // Loop through the matches.
-        foreach ($matches[0] as $json_string) {
+        foreach ($json_strings as $json_string) {
             // Try to decode the JSON string. If it fails, json_last_error() will return a non-zero value.
             $json_data = json_decode(trim($json_string), true);
 
@@ -174,7 +169,7 @@ class LaravelLog extends Log
             'from' => $message->getFrom(),
             'to' => $message->getTo(),
             'attachments' => array_map(fn ($attachment) => [
-                'content' => $attachment->getContent(),
+                'content' => base64_encode($attachment->getContent()),
                 'content_type' => $attachment->getContentType(),
                 'filename' => $attachment->getFilename(),
                 'size_formatted' => Utils::bytesForHumans($attachment->getSize()),
@@ -183,5 +178,29 @@ class LaravelLog extends Log
             'text' => $message->getTextPart()?->getContent(),
             'size_formatted' => Utils::bytesForHumans($message->getSize()),
         ];
+    }
+
+    protected function getJsonStringsFromFullText(): array
+    {
+        $json = '';
+        $json_strings = [];
+        $in = 0;
+        foreach (str_split($this->text) as $char) {
+            if ($char == '{' || $char == '[') {
+                $in++;
+            }
+            if ($in) {
+                $json .= $char;
+            }
+            if ($char == '}' || $char == ']') {
+                $in--;
+                if ($in == 0) {
+                    $json_strings[] = $json;
+                    $json = '';
+                }
+            }
+        }
+
+        return $json_strings;
     }
 }

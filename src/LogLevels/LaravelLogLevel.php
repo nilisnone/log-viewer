@@ -16,7 +16,7 @@ class LaravelLogLevel implements LevelInterface
 
     public string $value;
 
-    public function __construct(string $value = null)
+    public function __construct(?string $value = null)
     {
         $this->value = $value ?? self::None;
     }
@@ -36,7 +36,7 @@ class LaravelLogLevel implements LevelInterface
         ];
     }
 
-    public static function from(string $value = null): self
+    public static function from(?string $value = null): self
     {
         return new self($value);
     }
@@ -52,7 +52,8 @@ class LaravelLogLevel implements LevelInterface
     public function getClass(): LevelClass
     {
         return match ($this->value) {
-            self::Debug, self::Info, self::Notice => LevelClass::info(),
+            self::Debug, self::Info => LevelClass::info(),
+            self::Notice => LevelClass::notice(),
             self::Warning => LevelClass::warning(),
             self::Error, self::Critical, self::Alert, self::Emergency => LevelClass::danger(),
             default => LevelClass::none(),

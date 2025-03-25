@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Gate;
 use Nilisnone\LogViewer\Facades\LogViewer;
 use Nilisnone\LogViewer\Http\Resources\LogFolderResource;
 use Nilisnone\LogViewer\LogFile;
+use Illuminate\Support\Facades\URL;
+use Opcodes\LogViewer\Facades\LogViewer;
+use Opcodes\LogViewer\Http\Resources\LogFolderResource;
+use Opcodes\LogViewer\LogFile;
 
 class FoldersController
 {
@@ -23,13 +27,26 @@ class FoldersController
         return LogFolderResource::collection($folders->values());
     }
 
-    public function download(string $folderIdentifier)
+    public function requestDownload(Request $request, string $folderIdentifier)
     {
         $folder = LogViewer::getFolder($folderIdentifier);
 
         abort_if(is_null($folder), 404);
 
         Gate::authorize('downloadLogFolder', $folder);
+
+        return response()->json([
+            'url' => URL::temporarySignedRoute(
+                'log-viewer.folders.download',
+                now()->addMinutes(30),   // longer time to allow for processing of the ZIP file
+                ['folderIdentifier' => $folderIdentifier]
+            ),
+        ]);
+    }
+
+    public function download(string $folderIdentifier)
+    {
+        $folder = LogViewer::getFolder($folderIdentifier);
 
         return $folder->download();
     }

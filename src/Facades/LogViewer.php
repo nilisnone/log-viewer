@@ -15,6 +15,7 @@ use Nilisnone\LogViewer\Readers\LogReaderInterface;
  * @see \Nilisnone\LogViewer\LogViewerService
  *
  * @method static string version()
+ * @method static string timezone()
  * @method static bool assetsAreCurrent()
  * @method static bool supportsHostsFeature()
  * @method static void resolveHostsUsing(callable $callback)
